@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7tk0qi2gapur"]
+
+[ext_resource type="Theme" uid="uid://cbl2pvds1dr0c" path="res://Themes/Theme.tres" id="1_17hjr"]
+[ext_resource type="Script" uid="uid://flya2bdajo2k" path="res://Scenes/UI/GamePause/GamePause.cs" id="1_fsrjv"]
+[ext_resource type="Texture2D" uid="uid://cx7wmq1nmpihp" path="res://Assets/Black.png" id="2_r0641"]
+
+[node name="GamePause" type="Node2D" node_paths=PackedStringArray("Continue", "MainMenu")]
+process_mode = 2
+script = ExtResource("1_fsrjv")
+Continue = NodePath("Buttons/Continue")
+MainMenu = NodePath("Buttons/MainMenu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("2_r0641")
+region_enabled = true
+region_rect = Rect2(0, 0, 1152, 648)
+
+[node name="TitleContainer" type="CenterContainer" parent="."]
+offset_top = 122.0
+offset_right = 1152.0
+offset_bottom = 217.0
+
+[node name="Title" type="Label" parent="TitleContainer"]
+layout_mode = 2
+theme = ExtResource("1_17hjr")
+text = "KEY_PAUSED"
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+offset_left = 7.0
+offset_top = 235.0
+offset_right = 1149.0
+offset_bottom = 420.0
+theme = ExtResource("1_17hjr")
+theme_override_constants/separation = 10
+
+[node name="Continue" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(320, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "KEY_CONTINUE"
+
+[node name="MainMenu" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(320, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "KEY_MAIN_MENU"

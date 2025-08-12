@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqq4va1kil4ep"]
+
+[ext_resource type="Script" uid="uid://cgxeuimuhgkp7" path="res://TestScenes/BonusTest.cs" id="1_tyx5w"]
+[ext_resource type="PackedScene" uid="uid://brca3wb6764jy" path="res://Scenes/Wall/Wall.tscn" id="2_iak2q"]
+[ext_resource type="PackedScene" uid="uid://cjinnikx0hxrk" path="res://Scenes/Paddle/Paddle.tscn" id="3_uy1lx"]
+
+[node name="BallTest" type="Node2D"]
+script = ExtResource("1_tyx5w")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="WallTop" parent="Walls" instance=ExtResource("2_iak2q")]
+position = Vector2(576, -10)
+
+[node name="WallLeft" parent="Walls" instance=ExtResource("2_iak2q")]
+position = Vector2(-10, 312)
+rotation = 1.5708
+scale = Vector2(0.67, 1)
+
+[node name="WallRight" parent="Walls" instance=ExtResource("2_iak2q")]
+position = Vector2(1162, 334)
+rotation = 1.5708
+scale = Vector2(0.67, 1)
+
+[node name="WallBottom" parent="Walls" instance=ExtResource("2_iak2q")]
+position = Vector2(576, 648)
+
+[node name="Balls" type="Node2D" parent="."]
+
+[node name="Bonuses" type="Node2D" parent="."]
+
+[node name="Paddle" parent="." instance=ExtResource("3_uy1lx")]
+position = Vector2(573, 559)
+PaddleWidth = 200.0
+
+[node name="BallCount" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 114.0
+offset_bottom = 40.0
+text = "BallCount: 0"
+
+[node name="BallCountBonus" type="Button" parent="."]
+offset_left = 1000.0
+offset_top = 20.0
+offset_right = 1116.0
+offset_bottom = 73.0
+text = "BallCount"
+
+[node name="PaddleSizeBonus" type="Button" parent="."]
+offset_left = 1000.0
+offset_top = 100.0
+offset_right = 1116.0
+offset_bottom = 153.0
+text = "PaddleSize"
+
+[node name="BottomWallToggle" type="CheckButton" parent="."]
+offset_left = 15.0
+offset_top = 80.0
+offset_right = 132.0
+offset_bottom = 133.0
+button_pressed = true
+text = "底部墙壁"
+
+[node name="PaddleToggle" type="CheckButton" parent="."]
+offset_left = 15.0
+offset_top = 131.0
+offset_right = 132.0
+offset_bottom = 184.0
+button_pressed = true
+text = "显示挡板"

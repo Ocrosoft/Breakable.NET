@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://opnvsxvmwn52"]
+
+[ext_resource type="Script" uid="uid://bcdnpdbttdc1q" path="res://Scenes/Bonus/Bonus.cs" id="1_um1mp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c74jw"]
+radius = 20.0998
+
+[node name="Bonus" type="Area2D" node_paths=PackedStringArray("Sprite2D", "Label")]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_um1mp")
+Sprite2D = NodePath("Sprite2D")
+Label = NodePath("Label")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.78, 0.78)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_c74jw")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -18.0
+offset_top = -8.0
+offset_right = 19.0
+offset_bottom = 20.0
+horizontal_alignment = 1
+vertical_alignment = 1

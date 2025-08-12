@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1x7nwhxbc7ah"]
+
+[ext_resource type="PackedScene" uid="uid://brca3wb6764jy" path="res://Scenes/Wall/Wall.tscn" id="1_k2uda"]
+[ext_resource type="Script" uid="uid://hor4lo630f1l" path="res://Scenes/Level/Level.cs" id="1_ksici"]
+[ext_resource type="PackedScene" uid="uid://cjinnikx0hxrk" path="res://Scenes/Paddle/Paddle.tscn" id="1_vbawi"]
+[ext_resource type="Shader" uid="uid://bnoym5harfdgu" path="res://Scenes/Level/Level.gdshader" id="2_qp1lj"]
+[ext_resource type="Texture2D" uid="uid://cx7wmq1nmpihp" path="res://Assets/Black.png" id="3_k2uda"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k2uda"]
+shader = ExtResource("2_qp1lj")
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_ksici")
+BrickMargin = 40
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_k2uda")
+position = Vector2(576, 324)
+texture = ExtResource("3_k2uda")
+region_enabled = true
+region_rect = Rect2(0, 0, 1152, 648)
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="WallTop" parent="Walls" instance=ExtResource("1_k2uda")]
+position = Vector2(576, -10)
+
+[node name="WallLeft" parent="Walls" instance=ExtResource("1_k2uda")]
+position = Vector2(-10, 341)
+rotation = 1.5708
+scale = Vector2(0.67, 1)
+
+[node name="WallRight" parent="Walls" instance=ExtResource("1_k2uda")]
+position = Vector2(1162, 348)
+rotation = 1.5708
+scale = Vector2(0.67, 1)
+
+[node name="Bricks" type="Node2D" parent="."]
+
+[node name="Balls" type="Node2D" parent="."]
+
+[node name="Paddle" parent="." instance=ExtResource("1_vbawi")]
+position = Vector2(576, 600)
+
+[node name="Bonuses" type="Node2D" parent="."]

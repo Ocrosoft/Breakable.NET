@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://mklp04x4e6a5"]
+
+[ext_resource type="Texture2D" uid="uid://cx7wmq1nmpihp" path="res://Assets/Black.png" id="1_llu22"]
+[ext_resource type="Script" uid="uid://cc6h40h6ap8v3" path="res://Scenes/UI/GameStart/GameStart.cs" id="1_popg3"]
+[ext_resource type="Theme" uid="uid://cbl2pvds1dr0c" path="res://Themes/Theme.tres" id="3_ivgj0"]
+
+[node name="EndScene" type="Node2D" node_paths=PackedStringArray("NewGame", "Options", "Quit")]
+script = ExtResource("1_popg3")
+NewGame = NodePath("MenuCenter/VBoxContainer/NewGame")
+Options = NodePath("MenuCenter/VBoxContainer/Options")
+Quit = NodePath("MenuCenter/VBoxContainer/Quit")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("1_llu22")
+region_enabled = true
+region_rect = Rect2(0, 0, 1152, 648)
+
+[node name="MenuCenter" type="CenterContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme = ExtResource("3_ivgj0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuCenter"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="NewGame" type="Button" parent="MenuCenter/VBoxContainer"]
+custom_minimum_size = Vector2(320, 50)
+layout_mode = 2
+text = "KEY_NEW_GAME"
+
+[node name="Options" type="Button" parent="MenuCenter/VBoxContainer"]
+custom_minimum_size = Vector2(320, 50)
+layout_mode = 2
+text = "KEY_OPTIONS"
+
+[node name="Quit" type="Button" parent="MenuCenter/VBoxContainer"]
+custom_minimum_size = Vector2(320, 50)
+layout_mode = 2
+size_flags_vertical = 4
+text = "KEY_QUIT"

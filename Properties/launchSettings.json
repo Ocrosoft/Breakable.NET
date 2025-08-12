@@ -1,0 +1,9 @@
+{
+  "profiles": {
+	"Godot": {
+	  "commandName": "Executable",
+	  "executablePath": "D:\\Godot_v4.4.1\\Godot_v4.4.1-stable_mono_win64.exe",
+	  "commandLineArgs": "--path D:\\Code\\Breakable.Net"
+	}
+  }
+}

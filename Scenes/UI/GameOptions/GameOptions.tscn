@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhm0fjvvlgwmr"]
+
+[ext_resource type="Script" uid="uid://bq7i2ptofplya" path="res://Scenes/UI/GameOptions/GameOptions.cs" id="1_cwbed"]
+[ext_resource type="Theme" uid="uid://cbl2pvds1dr0c" path="res://Themes/Theme.tres" id="1_xtei8"]
+[ext_resource type="Texture2D" uid="uid://cx7wmq1nmpihp" path="res://Assets/Black.png" id="2_0x1mo"]
+
+[node name="GameOptions" type="Node2D" node_paths=PackedStringArray("MainMenu", "Language", "FullScreen")]
+script = ExtResource("1_cwbed")
+MainMenu = NodePath("CenterContainer/MainMenu")
+Language = NodePath("OptionsCenter/OptionsGrid/Language")
+FullScreen = NodePath("OptionsCenter/OptionsGrid/FullScreen")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("2_0x1mo")
+region_enabled = true
+region_rect = Rect2(0, 0, 1152, 648)
+
+[node name="Title" type="Label" parent="."]
+offset_left = 2.0
+offset_top = 70.0
+offset_right = 1154.0
+offset_bottom = 110.0
+theme = ExtResource("1_xtei8")
+text = "KEY_OPTIONS"
+horizontal_alignment = 1
+
+[node name="OptionsCenter" type="CenterContainer" parent="."]
+offset_top = 112.0
+offset_right = 1152.0
+offset_bottom = 463.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="OptionsGrid" type="GridContainer" parent="OptionsCenter"]
+layout_mode = 2
+theme = ExtResource("1_xtei8")
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="LanguageLabel" type="Label" parent="OptionsCenter/OptionsGrid"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KEY_LANGUAGE"
+
+[node name="Language" type="OptionButton" parent="OptionsCenter/OptionsGrid"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "KEY_LANG_CHINESE"
+popup/item_0/id = 0
+popup/item_1/text = "KEY_LANG_ENGLISH"
+popup/item_1/id = 1
+
+[node name="FullScreenLabel" type="Label" parent="OptionsCenter/OptionsGrid"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KEY_FULL_SCREEN"
+
+[node name="FullScreen" type="CheckBox" parent="OptionsCenter/OptionsGrid"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+icon_alignment = 1
+expand_icon = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_top = 523.0
+offset_right = 1152.0
+offset_bottom = 586.0
+
+[node name="MainMenu" type="Button" parent="CenterContainer"]
+custom_minimum_size = Vector2(320, 50)
+layout_mode = 2
+theme = ExtResource("1_xtei8")
+text = "KEY_MAIN_MENU"

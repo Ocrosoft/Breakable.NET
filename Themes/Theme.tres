@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cbl2pvds1dr0c"]
+
+[ext_resource type="FontFile" uid="uid://dwycbq44ruwwe" path="res://Fonts/85W-Regular.ttf" id="1_bevgq"]
+
+[resource]
+default_font = ExtResource("1_bevgq")
+default_font_size = 26

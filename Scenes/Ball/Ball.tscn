@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://ceuyv6mgmv1t5"]
+
+[ext_resource type="Script" uid="uid://cipgq8x8dkah2" path="res://Scenes/Ball/Ball.cs" id="1_xo6r3"]
+[ext_resource type="Texture2D" uid="uid://1arsw1m5eea6" path="res://Assets/Ball.png" id="2_dvc57"]
+[ext_resource type="AudioStream" uid="uid://btw1oqmq4jxvt" path="res://Audios/Wall.wav" id="3_g8do5"]
+[ext_resource type="AudioStream" uid="uid://djl1a47maefai" path="res://Audios/Brick.wav" id="4_eodbk"]
+[ext_resource type="AudioStream" uid="uid://bgbk6heehoajq" path="res://Audios/Paddle.wav" id="5_qpypm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xo6r3"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xo6r3"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dvc57"]
+radius = 8.0
+
+[node name="Ball" type="RigidBody2D" node_paths=PackedStringArray("Area2D") groups=["Balls"]]
+collision_layer = 4
+collision_mask = 11
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_xo6r3")
+gravity_scale = 0.0
+can_sleep = false
+continuous_cd = 1
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_xo6r3")
+Area2D = NodePath("Area2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.17233e-07, 4.17233e-07)
+scale = Vector2(0.40625, 0.40625)
+texture = ExtResource("2_dvc57")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xo6r3")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_dvc57")
+
+[node name="HitWall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_g8do5")
+
+[node name="HitBrick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_eodbk")
+
+[node name="HitPaddle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qpypm")
